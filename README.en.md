@@ -221,6 +221,9 @@ No. `scripts/lint_reply.py` blocks it, and `SKILL.md` hard-codes a ban on determ
 **Q: Is it accurate?**
 It says of itself: *“I won't claim my readings are accurate. The chart is computed; the interpretation is a hypothesis. Whether it's accurate depends on whether you can pick out the part that's useful to you.”* (´･ω･`)
 
+**Q: Which languages are supported?**
+Simplified Chinese, Traditional Chinese, Cantonese, Japanese and English. Ask in one of these and you get the same language back; anything else defaults to English.
+
 ## License
 
 MIT. The bundled lunar-python is MIT as well; the original license is at `vendor/lunar_python-1.4.8.dist-info/LICENSE`; third-party notices are in `NOTICE.md`.
