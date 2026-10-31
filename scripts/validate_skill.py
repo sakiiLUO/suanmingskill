@@ -124,6 +124,17 @@ def main(argv: list[str] | None = None) -> int:
                 errors.append(f"{name} 缺少指回 README.md 的语言切换链接")
         if not langs:
             warns.append("README 没有语言切换条（单语仓库可忽略）")
+
+        # AI 安装提示词：每个语言版本都要有，且标记成对出现
+        ai_files = [readme] + [root / name for name in langs]
+        for f in ai_files:
+            if not f.exists():
+                continue
+            body = f.read_text(encoding="utf-8")
+            if "AI-INSTALL:START" not in body or "AI-INSTALL:END" not in body:
+                errors.append(f"{f.name} 缺少 AI 安装提示词标记（AI-INSTALL:START/END）")
+            elif body.index("AI-INSTALL:START") > body.index("AI-INSTALL:END"):
+                errors.append(f"{f.name} 的 AI 安装提示词标记顺序反了")
     notice = root / "NOTICE.md"
     if notice.exists():
         ntext = notice.read_text(encoding="utf-8")
@@ -153,6 +164,7 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
 
 

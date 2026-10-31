@@ -106,6 +106,37 @@ cp -r suanming ~/.dsh/skills/        # 目錄名保持 suanming，同 SKILL.md �
 
 需要 **Python 3.10+**。曆法依賴 `lunar-python`（MIT）已經放咗喺 `vendor/` 入面，**開箱即用、唔使聯網**；想用 pip 都可以：`pip install -r requirements.txt`。
 
+## 懶得自己裝？叫 AI 幫你 (っ•̀ω•́)っ
+
+將下面呢段直接複製畀你嘅 AI（Claude Code / Codex / DSH / Cursor 都得），佢會自己 clone、裝好、跑測試：
+
+<!-- AI-INSTALL:START -->
+```text
+請幫我將呢個 Agent Skill 安裝到本機並且驗證：
+倉庫：https://github.com/sakiiLUO/suanmingskill
+
+1. 先確認宿主同 skill 目錄，唔確定就問我：
+   - DSH：~/.dsh/skills/（項目級用 <repo>/.dsh/skills/）
+   - Claude Code：~/.claude/skills/
+   - Codex：~/.codex/skills/
+2. clone 到臨時目錄，再複製成 <skill目錄>/suanming/；確認根目錄有 SKILL.md，而且 frontmatter 嘅 name 係 suanming。
+3. 需要 Python 3.10+；依賴已經內置喺 vendor/，唔好全局 pip 安裝。
+4. 驗證：cd <skill目錄>/suanming && python -m unittest discover -s tests && python scripts/validate_skill.py
+5. 報告：裝喺邊、Python 版本、測試通過幾多個、有冇失敗項。
+
+約束：唔好改倉庫源碼；唔好用管理員/sudo 權限；唔好全局裝包；唔好跳過驗證；任何一步失敗就停下，同我講原因同回滾方法（刪掉 <skill目錄>/suanming/ 就可以回滾）。
+```
+<!-- AI-INSTALL:END -->
+
+裝完想確認佢真係做緊嘢？新開一個會話講「幫我算吓我係咩命」，佢應該先問你生日、時間、城市、性別，而唔係直接編 (๑•̀ㅂ•́)و✧
+
+只想檢查裝好未，用呢一句：
+
+```text
+幫我檢查本機裝好咗 suanming skill 未：搵到 <skill目錄>/suanming/SKILL.md，
+跑 python -m unittest discover -s tests，將路徑同結果話我知；冇裝就話冇裝，唔好自己裝。
+```
+
 ## 用起上嚟 (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

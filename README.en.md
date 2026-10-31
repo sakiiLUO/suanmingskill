@@ -106,6 +106,37 @@ cp -r suanming ~/.dsh/skills/        # keep the directory named suanming, matchi
 
 It needs **Python 3.10+**. The calendar dependency `lunar-python` (MIT) is already bundled in `vendor/`, so it **works out of the box with no network access**; if you'd rather use pip: `pip install -r requirements.txt`.
 
+## Too Lazy to Install It Yourself? Let AI Do It (っ•̀ω•́)っ
+
+Copy the block below straight to your AI (Claude Code / Codex / DSH / Cursor all work) — it will clone, install, and run the tests on its own:
+
+<!-- AI-INSTALL:START -->
+```text
+Please install this Agent Skill on my machine and verify it for me:
+Repo: https://github.com/sakiiLUO/suanmingskill
+
+1. First confirm the host and the skill directory; ask me if you're unsure:
+   - DSH: ~/.dsh/skills/ (for project level use <repo>/.dsh/skills/)
+   - Claude Code: ~/.claude/skills/
+   - Codex: ~/.codex/skills/
+2. Clone it into a temporary directory, then copy it to <skill目录>/suanming/; confirm that SKILL.md is at the root and that the frontmatter name is suanming.
+3. Python 3.10+ is required; dependencies are already bundled in vendor/, do not pip install them globally.
+4. Verify: cd <skill目录>/suanming && python -m unittest discover -s tests && python scripts/validate_skill.py
+5. Report: where it was installed, the Python version, how many tests passed, and whether anything failed.
+
+Constraints: do not modify the repo source; do not use admin/sudo privileges; do not install packages globally; do not skip verification; if any step fails, stop and tell me the reason and how to roll back (just delete <skill目录>/suanming/).
+```
+<!-- AI-INSTALL:END -->
+
+Want to confirm it's really working after the install? Open a new session and say "Read my fortune" — it should ask for your birthday, time, city, and sex first instead of making things up (๑•̀ㅂ•́)و✧
+
+To just check whether it's installed properly, use this one:
+
+```text
+Check whether the suanming skill is properly installed on this machine: locate <skill目录>/suanming/SKILL.md,
+run python -m unittest discover -s tests, and tell me the path and the result; if it isn't installed, say so — don't install it yourself.
+```
+
 ## Using It (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

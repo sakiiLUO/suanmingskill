@@ -106,6 +106,37 @@ cp -r suanming ~/.dsh/skills/        # ディレクトリ名は suanming のま�
 
 **Python 3.10+** が必要です。暦算の依存 `lunar-python`（MIT）は `vendor/` に同梱済みで、**すぐ動き、ネット接続も不要**です。pip を使いたい場合は `pip install -r requirements.txt` でも構いません。
 
+## 自分で入れるのが面倒？AI にやってもらう (っ•̀ω•́)っ
+
+以下をそのまま AI（Claude Code / Codex / DSH / Cursor のいずれでも可）にコピーしてください。clone からインストール、テスト実行まで自分でやってくれます：
+
+<!-- AI-INSTALL:START -->
+```text
+この Agent Skill を本機にインストールして検証してください：
+リポジトリ：https://github.com/sakiiLUO/suanmingskill
+
+1. まずホストと skill ディレクトリを確認し、わからなければ私に聞いてください：
+   - DSH：~/.dsh/skills/（プロジェクト単位なら <repo>/.dsh/skills/）
+   - Claude Code：~/.claude/skills/
+   - Codex：~/.codex/skills/
+2. 一時ディレクトリに clone し、<skillディレクトリ>/suanming/ としてコピーしてください。ルートに SKILL.md があり、frontmatter の name が suanming であることを確認してください。
+3. Python 3.10+ が必要です。依存は vendor/ に同梱済みなので、グローバルに pip インストールしないでください。
+4. 検証：cd <skillディレクトリ>/suanming && python -m unittest discover -s tests && python scripts/validate_skill.py
+5. 報告：どこに入れたか、Python のバージョン、テストが何件通ったか、失敗項目があるか。
+
+制約：リポジトリのソースを変更しないこと；管理者/sudo 権限を使わないこと；グローバルにパッケージを入れないこと；検証を飛ばさないこと；いずれかの手順が失敗したら止めて、原因とロールバック方法（<skillディレクトリ>/suanming/ を削除すればロールバックできます）を伝えてください。
+```
+<!-- AI-INSTALL:END -->
+
+インストール後に本当に動いているか確認したいですか？新しい会話で「私の命を占って」と言ってみてください。誕生日、時刻、都市、性別をまず聞いてくるはずです（いきなり作話はしません）(๑•̀ㅂ•́)و✧
+
+インストールできたかだけ確認したいときは、この一文を：
+
+```text
+本機に suanming skill が正しくインストールされているか確認してください：<skillディレクトリ>/suanming/SKILL.md を見つけ、
+python -m unittest discover -s tests を実行して、パスと結果を教えてください。未インストールならその旨を伝え、自分でインストールしないでください。
+```
+
 ## 使ってみる (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

@@ -106,6 +106,36 @@ cp -r suanming ~/.dsh/skills/        # 目录名保持 suanming，跟 SKILL.md �
 
 需要 **Python 3.10+**。历法依赖 `lunar-python`（MIT）已经放在 `vendor/` 里了，**开箱即用、不用联网**；想用 pip 也可以：`pip install -r requirements.txt`。
 
+## 懒得自己装？让 AI 帮你 (っ•̀ω•́)っ
+
+把下面这段直接复制给你的 AI（Claude Code / Codex / DSH / Cursor 都行），它会自己 clone、装好、跑测试：
+
+<!-- AI-INSTALL:START -->
+```text
+请帮我把这个 Agent Skill 安装到本机并验证：
+仓库：https://github.com/sakiiLUO/suanmingskill
+
+1. 先确认宿主和 skill 目录，不确定就问我：
+   - DSH：~/.dsh/skills/（项目级用 <repo>/.dsh/skills/）
+   - Claude Code：~/.claude/skills/
+   - Codex：~/.codex/skills/
+2. clone 到临时目录，再复制成 <skill目录>/suanming/；确认根目录有 SKILL.md，且 frontmatter 的 name 是 suanming。
+3. 需要 Python 3.10+；依赖已内置在 vendor/，不要全局 pip 安装。
+4. 验证：cd <skill目录>/suanming && python -m unittest discover -s tests && python scripts/validate_skill.py
+5. 报告：装在哪、Python 版本、测试通过几个、有没有失败项。
+
+约束：不要改仓库源码；不要用管理员/sudo 权限；不要全局装包；不要跳过验证；任何一步失败就停下，告诉我原因和回滚方法（删掉 <skill目录>/suanming/ 即可回滚）。
+```
+<!-- AI-INSTALL:END -->
+
+装完想确认它真在工作？新开一个会话说「帮我算算我是什么命」，它应该先问你生日、时间、城市、性别，而不是直接编 (๑•̀ㅂ•́)و✧
+
+只想检查装没装好，用这一句：
+
+```text
+帮我检查本机是否装好了 suanming skill：找到 <skill目录>/suanming/SKILL.md，
+跑 python -m unittest discover -s tests，把路径和结果告诉我；没装就说没装，不要自己装。
+```
 ## 用起来 (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash
@@ -193,5 +223,6 @@ MIT。内置的 lunar-python 也是 MIT，原始许可证在 `vendor/lunar_pytho
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可选协作对象，也是 skill 组织方式的参照
 
 > 本项目不构成医疗、心理、法律、财务建议。命理不是预测事实，重要决定请以现实信息与专业意见为准 (◕‿◕)
+
 
 

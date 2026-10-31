@@ -2,6 +2,11 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.3.1] - 2026-10-31
+
+### Added
+- 5 个语言版本的 README 都新增「让 AI 帮你安装」小节：可复制提示词（先问宿主/目录、clone 到临时目录、复制为 `suanming`、跑测试与校验、报告结果、失败即停、给出回滚方式），另附「只检查是否装好」的短提示词。
+- `validate_skill.py` 新增检查：每个语言 README 都必须含 `AI-INSTALL:START/END` 标记且顺序正确。
 ## [0.3.0] - 2026-10-31
 
 ### Added
@@ -56,6 +61,7 @@
 - 13 份 references 中的基础 6 份（排盘规则、十神、合盘、时间窗、伦理边界、档案协议）。
 - 与狗头军师的【命理简报】交接协议。
 - 14 个历法不变量与回归测试。
+
 
 
 
