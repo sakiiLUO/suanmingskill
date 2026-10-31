@@ -119,3 +119,12 @@ curl -sS https://api.github.com/repos/sakiiLUO/suanmingskill | python -c "import
 - Topics：18 个（`agent-skills` … `ziwei-doushu`，页面已渲染为 topic 标签）
 
 验证方式：`curl -sSL https://github.com/sakiiLUO/suanmingskill | grep -o '/topics/[a-z0-9-]*' | sort -u`（公开 API 的 `topics` 字段有 CDN 缓存延迟，页面 HTML 是准的）。
+## 仓库页那个「头像」说明
+
+仓库标题左边的头像是**账号头像**（用户级），GitHub **没有仓库级头像**，也没有 API 可以上传头像：只能手动改 Settings → Public profile → Avatar。
+
+- 已在 `assets/` 准备两版 500×500 方形图：
+  - `avatar.png`：透明底（推荐，深浅主题都好看）
+  - `avatar-dark.png`：深棕圆角底（更像 App 图标）
+- 上传后**所有仓库和你的个人主页都会变**；只改某一个仓库是做不到的。
+- 如果只想让这个项目有独立标识：可以建一个叫 `suanmingskill` 的 GitHub Organization，用 logo 当组织头像，再把仓库转移过去（转移也是网页操作）。
