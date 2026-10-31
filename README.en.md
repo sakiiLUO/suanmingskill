@@ -3,7 +3,7 @@
 > A standalone **BaZi charting and interpretation** Agent Skill — get the chart right, say it plainly, and make the boundaries non-negotiable ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-77%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -144,6 +144,19 @@ run python -m unittest discover -s tests, and tell me the path and the result; i
 - Keep the folder name `suanming` (matching `name` in `SKILL.md`).
 - If the network fails, stop and retry — don't fall back to `sudo` or a global `pip install`.
 
+## It Can Also Cast Zi Wei and Liu Yao, and Talk About "Making It Last" (｡•̀ᴗ-)✧
+
+```bash
+# Zi Wei Dou Shu: twelve palaces + major stars + four transformations + major/annual cycles (iztro/MIT, offline; needs Node.js 18+)
+python scripts/ziwei.py --birth "1995-08-17 14:30" --gender male --city 杭州 --format brief
+
+# Liu Yao: shake a hexagram to ask about one specific thing (pure standard library; the rule tables are locked down by tests)
+python scripts/liuyao.py --lines 7,8,9,7,6,8 --date "2026-10-31 19:40" --question "Will this collaboration work out" --format brief
+```
+
+- **Zi Wei** looks at the twelve palaces and where the four transformations land; **Liu Yao** looks at the self line and response line (世应) and the moving lines (动爻) of a single question. Neither one **scores good or bad luck or promises a date**.
+- To talk about "how do we keep this going", what it gives you are actions from the *Long-Term Maintenance Guide*: 20 low-pressure minutes of conversation a week, repairing things within 24 hours of a conflict, changing one habit at a time... **with no promise that "do this and it will definitely last"** (｀・ω・´)
+
 ## Using It (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash
@@ -167,13 +180,13 @@ Jokes aside, **the chart-casting layer is serious**:
 
 | Layer | Approach | Verification |
 | --- | --- | --- |
-| Calendar math | `lunar-python` (MIT) plus in-house rules for true solar time / daylight saving / late-Zi hour | 59 tests; includes the **GB/T 33661-2017 sexagenary day-cycle anchor** (1949-10-01 = Jia-Zi day) |
+| Calendar math | `lunar-python` (MIT) plus in-house rules for true solar time / daylight saving / late-Zi hour | 77 tests; includes the **GB/T 33661-2017 sexagenary day-cycle anchor** (1949-10-01 = Jia-Zi day) |
 | Charting | True solar time (longitude difference + equation of time), 1986–1991 daylight saving, Start-of-Spring / solar-term boundary warnings | Pillar change at Start of Spring (立春), first and last DST days, late-Zi hour under both conventions |
 | Speaking | Reply self-check: 20+ boundary rules plus structural checks | 34 red-team dialogue cases, all matching expectations |
 | Citations | Classical texts: only 8 passages with verified wording, marked grade D; empirical studies marked A/B/C | `references/11`, `references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 59 tests
+python -m unittest discover -s tests -v   # 77 tests
 python scripts/validate_skill.py           # structure / citations / license / banned content
 python scripts/eval_dialogue.py            # 40 red-team cases
 ```
@@ -183,11 +196,11 @@ python scripts/eval_dialogue.py            # 40 red-team cases
 ```text
 suanmingskill/                # repo root = skill root (install directory recommended: suanming)
 ├─ SKILL.md                   # behavioral core: the one file the model must read
-├─ references/                # 14 on-demand files (incl. scripture and aphorisms): charting, Ten Gods,
+├─ references/                # 16 reference files (incl. scripture, long-term maintenance, Zi Wei & Liu Yao): charting, Ten Gods,
 │                             #   compatibility, timing windows, ethics, career, study, body and mind, family, classics, evidence grading, archive
-├─ scripts/                   # paipan / hepan / solartime / archive /
+├─ scripts/                   # paipan / hepan / ziwei / liuyao / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 59 tests + 40 red-team cases
+├─ tests/                     # 77 tests + 40 red-team cases
 ├─ vendor/lunar_python/       # unmodified MIT dependency (works offline)
 ├─ docs/                      # design notes: research, architecture, collaboration protocol, evaluation, test report
 ├─ agents/openai.yaml         # Codex display metadata (optional)
@@ -213,7 +226,7 @@ No, MIT. Use it however you like, just keep the attribution.
 No. All computation is local; saving an archive requires your explicit consent (`--consent`), and you can inspect or delete it at any time.
 
 **Q: Can it do Zi Wei Dou Shu / Liu Yao / tarot?**
-Not yet. Zi Wei is on the roadmap (the plan is to use the MIT-licensed iztro through a Node subprocess); PRs welcome (๑•̀ㅂ•́)و✧
+Zi Wei and Liu Yao are already supported (Zi Wei via the MIT-licensed iztro; Liu Yao is a pure-standard-library rule layer). Tarot is not yet available — PRs welcome (๑•̀ㅂ•́)و✧
 
 **Q: Will it suddenly tell me "you are destined to..."?**
 No. `scripts/lint_reply.py` blocks it, and `SKILL.md` hard-codes a ban on deterministic wording.
@@ -234,4 +247,3 @@ MIT. The bundled lunar-python is MIT as well; the original license is at `vendor
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi): an optional collaboration partner and a reference for how the skill is organized
 
 > This project does not constitute medical, psychological, legal, or financial advice. Fortune-telling is not the prediction of facts; for important decisions, rely on real-world information and professional opinion (◕‿◕)
-

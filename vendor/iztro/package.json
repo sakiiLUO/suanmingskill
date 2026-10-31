@@ -1,0 +1,1 @@
+{ "name": "suanming-iztro-vendor", "private": true, "type": "module", "dependencies": { "iztro": "2.6.3" } }

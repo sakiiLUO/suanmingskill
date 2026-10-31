@@ -3,7 +3,7 @@
 > 単体で使える**八字排盤と解読**（八字＝生まれた年月日時を干支に置き換えた八つの文字）の Agent Skill —— 盤は正確に、言葉は明快に、境界線は固く ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-77%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -144,6 +144,19 @@ python -m unittest discover -s tests を実行して、パスと結果を教え�
 - ディレクトリ名は `suanming` 固定（`SKILL.md` の `name` と一致）。変えないでください。
 - ネットワーク失敗時は停止して再試行。`sudo` やグローバル `pip install` に逃げないでください。
 
+## 紫微も六爻も、そして「どう長く続けるか」も (｡•̀ᴗ-)✧
+
+```bash
+# 紫微斗数：十二宮 + 主星 + 四化 + 大限流年（iztro/MIT、オフライン；Node.js 18+ が必要）
+python scripts/ziwei.py --birth "1995-08-17 14:30" --gender male --city 杭州 --format brief
+
+# 六爻：一つの具体的なことを問うて一卦立てる（標準ライブラリのみ、ルール表はテストで固定）
+python scripts/liuyao.py --lines 7,8,9,7,6,8 --date "2026-10-31 19:40" --question "この提携はうまくいく？" --format brief
+```
+
+- **紫微**は十二宮と四化の落ち先を、**六爻**は一つのことの世応と動爻を見ます。どちらも**吉凶の点数付けや応期の約束はしません**。
+- 「どう続けていくか」を話したいときは、『長期メンテナンスガイド』にあるアクションを返します：週 20 分の低プレッシャーな対話、衝突から 24 時間以内の修復、一度に一つの習慣だけを変える……**「やれば必ず長続きする」とは約束しません** (｀・ω・´)
+
 ## 使ってみる (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash
@@ -167,13 +180,13 @@ python scripts/lint_reply.py --file draft.md
 
 | 層 | やり方 | 検証 |
 | --- | --- | --- |
-| 暦算 | `lunar-python`（MIT）+ 自前の真太陽時／夏時間／晩子時ルール | テスト 59 件；**GB/T 33661-2017 干支紀日のアンカー**（1949-10-01 = 甲子日）を含む |
+| 暦算 | `lunar-python`（MIT）+ 自前の真太陽時／夏時間／晩子時ルール | テスト 77 件；**GB/T 33661-2017 干支紀日のアンカー**（1949-10-01 = 甲子日）を含む |
 | 排盤 | 真太陽時（経度差 + 均時差）、1986–1991 年の夏時間、立春／節気の境界警告 | 立春での柱の切り替え、夏時間の初日と最終日、晩子時の二つの扱い |
 | 発話 | 回答セルフチェッカー：20+ 件の越境ルール + 構造チェック | 対話のレッドチーム 40 件、すべて期待どおり |
 | 引用 | 古典は原文を照合した 8 条のみを D 級として収録；実証研究は A/B/C | `references/11`、`references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 59 tests
+python -m unittest discover -s tests -v   # 77 tests
 python scripts/validate_skill.py           # 構造/引用/ライセンス/禁止内容
 python scripts/eval_dialogue.py            # レッドチーム 40 件
 ```
@@ -183,11 +196,11 @@ python scripts/eval_dialogue.py            # レッドチーム 40 件
 ```text
 suanmingskill/                # リポジトリのルート = skill のルート（インストール先は suanming を推奨）
 ├─ SKILL.md                   # 振る舞いの中核：モデルが必ず読む唯一のファイル
-├─ references/                # 14 本を必要時に読み込み（経文と格言を含む）：排盤、十神、合盤、時間の窓、倫理、
+├─ references/                # 16 本を必要時に読み込み（経文・長期メンテ・紫微と六爻を含む）：排盤、十神、合盤、時間の窓、倫理、
 │                             #   仕事、学業、心身、家庭、古典、証拠等級、記録
-├─ scripts/                   # paipan / hepan / solartime / archive /
+├─ scripts/                   # paipan / hepan / ziwei / liuyao / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # テスト 59 件 + レッドチーム 40 件
+├─ tests/                     # テスト 77 件 + レッドチーム 40 件
 ├─ vendor/lunar_python/       # 未改変の MIT 依存（オフラインで動作）
 ├─ docs/                      # 設計ノート：調査、アーキテクチャ、連携プロトコル、評価、テストレポート
 ├─ agents/openai.yaml         # Codex 側の表示情報（任意）
@@ -213,7 +226,7 @@ suanmingskill/                # リポジトリのルート = skill のルート
 されません。計算はすべてローカルです。記録を残すにはあなたの明確な同意（`--consent`）が必要で、いつでも確認・削除できます。
 
 **Q：紫微斗数 / 六爻 / タロットは占える？**
-今はまだありません。紫微はロードマップにあります（MIT の iztro を使い、Node の子プロセスで動かす予定）。PR 歓迎です (๑•̀ㅂ•́)و✧
+紫微と六爻はすでに排盤できます（紫微は MIT の iztro、六爻は標準ライブラリのみのルール層）。タロットは未対応で、PR 歓迎です (๑•̀ㅂ•́)و✧
 
 **Q：「あなたは運命づけられています……」と急に言われることは？**
 ありません。`scripts/lint_reply.py` が止め、`SKILL.md` にも決定論的な言い回しの禁止が明記されています。
@@ -234,4 +247,3 @@ MIT。同梱の lunar-python も MIT で、元のライセンスは `vendor/luna
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：任意の連携先であり、skill の組織方法の参考でもあります
 
 > 本プロジェクトは医療、心理、法律、財務の助言を構成するものではありません。命理は事実の予測ではなく、重要な決定は現実の情報と専門家の意見に基づいてください (◕‿◕)
-

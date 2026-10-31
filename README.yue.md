@@ -3,7 +3,7 @@
 > 一個可以獨立使用嘅**八字排盤同解讀** Agent Skill —— 將個盤算準，將說話講清楚，將界線寫死 ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-77%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -144,6 +144,19 @@ cp -r suanming ~/.dsh/skills/        # 目錄名保持 suanming，同 SKILL.md �
 - 資料夾名固定 `suanming`（同 `SKILL.md` 嘅 `name` 一致），唔好改。
 - 網絡失敗就停低重試，唔好變成 `sudo` 或者全域 `pip install`。
 
+## 仲可以排紫微、搖六爻，都傾得「點樣長久」 (｡•̀ᴗ-)✧
+
+```bash
+# 紫微斗數：十二宮 + 主星 + 四化 + 大限流年（iztro/MIT，離線；需要 Node.js 18+）
+python scripts/ziwei.py --birth "1995-08-17 14:30" --gender male --city 杭州 --format brief
+
+# 六爻：搖一卦問一件具體嘅事（純標準庫，規則表由測試鎖定）
+python scripts/liuyao.py --lines 7,8,9,7,6,8 --date "2026-10-31 19:40" --question "這次合作能成嗎" --format brief
+```
+
+- **紫微**睇十二宮同四化落點，**六爻**睇一件事嘅世應同動爻；兩套都**唔做吉凶打分、唔承諾應期**。
+- 想傾「點樣維持落去」，佢俾嘅係《長期維護指南》入面嘅動作：每星期 20 分鐘低壓對話、衝突後 24 小時內修復、一次只改一個習慣……**唔承諾「照做就一定長久」** (｀・ω・´)
+
 ## 用起上嚟 (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash
@@ -167,13 +180,13 @@ python scripts/lint_reply.py --file draft.md
 
 | 層 | 做法 | 驗證 |
 | --- | --- | --- |
-| 曆算 | `lunar-python`（MIT）+ 自研真太陽時/夏令時/晚子時規則 | 59 個測試；包含 **GB/T 33661-2017 干支紀日錨點**（1949-10-01 = 甲子日） |
+| 曆算 | `lunar-python`（MIT）+ 自研真太陽時/夏令時/晚子時規則 | 77 個測試；包含 **GB/T 33661-2017 干支紀日錨點**（1949-10-01 = 甲子日） |
 | 排盤 | 真太陽時（經度差 + 均時差）、1986–1991 夏令時、立春/節氣邊界告警 | 立春換柱、夏時制首尾日、晚子時兩種口徑 |
 | 說話 | 回覆自檢器：20+ 條越界規則 + 結構檢查 | 34 條對話紅隊用例，全部符合預期 |
 | 引用 | 古籍只收 8 條經核對原文並標 D 級；實證研究標 A/B/C | `references/11`、`references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 59 tests
+python -m unittest discover -s tests -v   # 77 tests
 python scripts/validate_skill.py           # 結構/引用/許可/禁用內容
 python scripts/eval_dialogue.py            # 40 條紅隊用例
 ```
@@ -183,11 +196,11 @@ python scripts/eval_dialogue.py            # 40 條紅隊用例
 ```text
 suanmingskill/                # 倉庫根 = skill 根（安裝目錄建議叫 suanming）
 ├─ SKILL.md                   # 行為內核：模型唯一必讀嗰份
-├─ references/                # 14 份按需載入（含經文與格言）：排盤、十神、合盤、時間窗、倫理、
+├─ references/                # 16 份按需載入（含經文、長期維護、紫微與六爻）：排盤、十神、合盤、時間窗、倫理、
 │                             #   事業、學業、身心、家庭、古籍、證據分級、檔案
-├─ scripts/                   # paipan / hepan / solartime / archive /
+├─ scripts/                   # paipan / hepan / ziwei / liuyao / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 59 個測試 + 40 條紅隊用例
+├─ tests/                     # 77 個測試 + 40 條紅隊用例
 ├─ vendor/lunar_python/       # 未修改嘅 MIT 依賴（離線可用）
 ├─ docs/                      # 設計筆記：調研、架構、配合協議、評測、測試報告
 ├─ agents/openai.yaml         # Codex 側展示資訊（可選）
@@ -213,7 +226,7 @@ suanmingskill/                # 倉庫根 = skill 根（安裝目錄建議叫 su
 唔會。計算全部喺本地；要存檔案必須你明確同意（`--consent`），而且隨時查得、刪得。
 
 **Q：可以算紫微斗數 / 六爻 / 塔羅咩？**
-暫時冇。紫微喺路線圖入面（打算用 MIT 嘅 iztro，走 Node 子進程），歡迎 PR (๑•̀ㅂ•́)و✧
+紫微同六爻已經排得（紫微用 MIT 嘅 iztro，六爻係純標準庫規則層）；塔羅仲未有，歡迎 PR (๑•̀ㅂ•́)و✧
 
 **Q：佢會唔會突然同我講「你注定……」？**
 唔會。`scripts/lint_reply.py` 會攔，`SKILL.md` 都寫死咗唔准用決定論措辭。
@@ -234,4 +247,3 @@ MIT。內置嘅 lunar-python 都係 MIT，原始許可證喺 `vendor/lunar_pytho
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可選協作對象，亦都係 skill 組織方式嘅參照
 
 > 本項目唔構成醫療、心理、法律、財務建議。命理唔係預測事實，重要決定請以現實資訊同專業意見為準 (◕‿◕)
-

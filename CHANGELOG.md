@@ -2,6 +2,18 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.4.0] - 2026-10-31
+
+### Added
+- 紫微斗数：`scripts/ziwei.py` + `scripts/ziwei_bridge.cjs`，引擎 iztro 2.6.3（MIT）已 vendor 到 `vendor/iztro/`，离线可用（需 Node.js 18+）；含十二宫、主星/辅星、四化、大限、流年。
+- 六爻：`scripts/liuyao.py`（纯标准库），支持摇卦（6/7/8/9）与时间起卦；输出本卦/变卦、世应、六亲、六神、月建日辰旬空。
+- `references/14-长期维护指南.md`：关系 6 个维护动作、事业/学业/家庭/身心维护清单、用盘面选题材的纪律。
+- `references/15-紫微与六爻.md`：两套体系的排盘命令、读法顺序、已知坑与边界。
+- 测试：`test_liuyao.py`（10 条，八宫卦序/纳甲/六亲/六神/64 卦唯一）、`test_ziwei.py`（8 条，缺 Node 自动跳过）；合计 77 个测试。
+
+### Changed
+- `SKILL.md` 增加「三套体系」定位、紫微/六爻的领域路由与排盘命令；`references/00` 路由同步。
+- `validate_skill.py` 纳入新文件检查。
 ## [0.3.5] - 2026-10-31
 
 ### Changed

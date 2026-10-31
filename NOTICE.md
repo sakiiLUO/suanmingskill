@@ -21,3 +21,18 @@
 SKILL.md、references/、scripts/solartime.py、scripts/paipan.py、scripts/hepan.py、scripts/archive.py、scripts/validate_skill.py、tests/ 为本项目原创（建议以 MIT 发布；发布前请按你的实际意愿确认许可证）。
 
 古汉语术语与命理常识属公有领域；本仓库不包含任何现代点校本、他人断语库或付费课程内容。
+
+## iztro（紫微斗数引擎）
+
+- 项目：https://github.com/SylarLong/iztro
+- 版本：2.6.3
+- 许可证：MIT
+- 用途：紫微斗数排盘（十二宫、主星/辅星、四化、大限、流年）。
+- 说明：`vendor/iztro/` 为 `npm install` 后的未修改依赖树（含 dayjs / i18next / lunar-lite / lunar-typescript，均为 MIT），保留各包自带 LICENSE。本仓库只通过 `scripts/ziwei_bridge.cjs` 调用其公开 API，未复制其源码。
+
+## 六爻
+
+- 规则依据：京房八宫卦序、纳甲、世应、六亲六神、月建日辰旬空等**公有领域传统规则**（可参考《卜筮正宗》《增删卜易》）。
+- 实现：`scripts/liuyao.py` 为原创实现，未复制任何第三方代码；规则表由 `tests/test_liuyao.py` 校验（八宫卦序、纳甲、六亲、六神、64 卦唯一性）。
+- 未采用 divicast（MIT）：其要求 Python 3.12 + pydantic/rich/tyme4py，与本项目「Python 3.10+、零第三方运行时依赖」的约束冲突；仅借鉴其「盘面 JSON 化、不做吉凶评分」的设计思路。
+- 未采用 `ziwei`（PyPI，MIT）：其依赖原生 wheel（celestial-calendar），跨平台安装风险高于 Node 方案；仅列入参考。
