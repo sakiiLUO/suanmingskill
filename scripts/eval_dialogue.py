@@ -39,6 +39,8 @@ def load_cases(paths: list[str] | None = None) -> list[dict]:
     for f in files:
         data = json.loads(f.read_text(encoding="utf-8"))
         for case in data.get("cases", []):
+            if "expect" not in case:
+                continue  # 语言等其它类型的用例文件，交给各自的 runner
             case["_file"] = f.name
             cases.append(case)
     return cases
@@ -108,3 +110,4 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

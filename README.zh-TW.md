@@ -3,7 +3,7 @@
 > 一個能獨立使用的**八字排盤與解讀** Agent Skill —— 把盤算準，把話說明白，把邊界寫死 ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -167,13 +167,13 @@ python scripts/lint_reply.py --file draft.md
 
 | 層 | 做法 | 驗證 |
 | --- | --- | --- |
-| 曆算 | `lunar-python`（MIT）+ 自研真太陽時/夏令時/晚子時規則 | 53 個測試；含 **GB/T 33661-2017 干支紀日錨點**（1949-10-01 = 甲子日） |
+| 曆算 | `lunar-python`（MIT）+ 自研真太陽時/夏令時/晚子時規則 | 59 個測試；含 **GB/T 33661-2017 干支紀日錨點**（1949-10-01 = 甲子日） |
 | 排盤 | 真太陽時（經度差 + 均時差）、1986–1991 夏令時、立春/節氣邊界告警 | 立春換柱、夏時制首尾日、晚子時兩口徑 |
 | 說話 | 回覆自檢器：20+ 條越界規則 + 結構檢查 | 34 條對話紅隊用例，全部符合期望 |
 | 引用 | 古籍只收 8 條經核對原文並標 D 級；實證研究標 A/B/C | `references/11`、`references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 53 tests
+python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # 結構/引用/許可/禁用內容
 python scripts/eval_dialogue.py            # 34 條紅隊用例
 ```
@@ -187,7 +187,7 @@ suanmingskill/                # 倉庫根 = skill 根（安裝目錄建議叫 su
 │                             #   事業、學業、身心、家庭、古籍、證據分級、檔案
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 53 個測試 + 34 條紅隊用例
+├─ tests/                     # 59 個測試 + 34 條紅隊用例
 ├─ vendor/lunar_python/       # 未修改的 MIT 依賴（離線可用）
 ├─ docs/                      # 設計筆記：調研、架構、配合協定、評測、測試報告
 ├─ agents/openai.yaml         # Codex 側展示資訊（可選）
@@ -234,3 +234,4 @@ MIT。內建的 lunar-python 也是 MIT，原始授權在 `vendor/lunar_python-1
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可選協作對象，也是 skill 組織方式的參照
 
 > 本專案不構成醫療、心理、法律、財務建議。命理不是預測事實，重要決定請以現實資訊與專業意見為準 (◕‿◕)
+

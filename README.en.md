@@ -3,7 +3,7 @@
 > A standalone **BaZi charting and interpretation** Agent Skill — get the chart right, say it plainly, and make the boundaries non-negotiable ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -167,13 +167,13 @@ Jokes aside, **the chart-casting layer is serious**:
 
 | Layer | Approach | Verification |
 | --- | --- | --- |
-| Calendar math | `lunar-python` (MIT) plus in-house rules for true solar time / daylight saving / late-Zi hour | 53 tests; includes the **GB/T 33661-2017 sexagenary day-cycle anchor** (1949-10-01 = Jia-Zi day) |
+| Calendar math | `lunar-python` (MIT) plus in-house rules for true solar time / daylight saving / late-Zi hour | 59 tests; includes the **GB/T 33661-2017 sexagenary day-cycle anchor** (1949-10-01 = Jia-Zi day) |
 | Charting | True solar time (longitude difference + equation of time), 1986–1991 daylight saving, Start-of-Spring / solar-term boundary warnings | Pillar change at Start of Spring (立春), first and last DST days, late-Zi hour under both conventions |
 | Speaking | Reply self-check: 20+ boundary rules plus structural checks | 34 red-team dialogue cases, all matching expectations |
 | Citations | Classical texts: only 8 passages with verified wording, marked grade D; empirical studies marked A/B/C | `references/11`, `references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 53 tests
+python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # structure / citations / license / banned content
 python scripts/eval_dialogue.py            # 34 red-team cases
 ```
@@ -187,7 +187,7 @@ suanmingskill/                # repo root = skill root (install directory recomm
 │                             #   compatibility, timing windows, ethics, career, study, body and mind, family, classics, evidence grading, archive
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 53 tests + 34 red-team cases
+├─ tests/                     # 59 tests + 34 red-team cases
 ├─ vendor/lunar_python/       # unmodified MIT dependency (works offline)
 ├─ docs/                      # design notes: research, architecture, collaboration protocol, evaluation, test report
 ├─ agents/openai.yaml         # Codex display metadata (optional)
@@ -234,3 +234,4 @@ MIT. The bundled lunar-python is MIT as well; the original license is at `vendor
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi): an optional collaboration partner and a reference for how the skill is organized
 
 > This project does not constitute medical, psychological, legal, or financial advice. Fortune-telling is not the prediction of facts; for important decisions, rely on real-world information and professional opinion (◕‿◕)
+

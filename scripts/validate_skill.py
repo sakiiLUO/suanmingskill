@@ -38,6 +38,7 @@ REQUIRED_FILES = [
     "scripts/archive.py",
     "scripts/lint_reply.py",
     "scripts/eval_dialogue.py",
+    "scripts/check_language.py",
     "scripts/validate_skill.py",
     "NOTICE.md",
 ]
@@ -164,6 +165,7 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
 
 

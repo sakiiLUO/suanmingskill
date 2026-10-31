@@ -3,7 +3,7 @@
 > 一个能独立使用的**八字排盘与解读** Agent Skill —— 把盘算准，把话说明白，把边界写死 ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -166,13 +166,13 @@ python scripts/lint_reply.py --file draft.md
 
 | 层 | 做法 | 验证 |
 | --- | --- | --- |
-| 历算 | `lunar-python`（MIT）+ 自研真太阳时/夏令时/晚子时规则 | 53 个测试；含 **GB/T 33661-2017 干支纪日锚点**（1949-10-01 = 甲子日） |
+| 历算 | `lunar-python`（MIT）+ 自研真太阳时/夏令时/晚子时规则 | 59 个测试；含 **GB/T 33661-2017 干支纪日锚点**（1949-10-01 = 甲子日） |
 | 排盘 | 真太阳时（经度差 + 均时差）、1986–1991 夏令时、立春/节气边界告警 | 立春换柱、夏时制首尾日、晚子时两口径 |
 | 说话 | 回复自检器：20+ 条越界规则 + 结构检查 | 34 条对话红队用例，全部符合期望 |
 | 引用 | 古籍只收 8 条经核对原文并标 D 级；实证研究标 A/B/C | `references/11`、`references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 53 tests
+python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # 结构/引用/许可/禁用内容
 python scripts/eval_dialogue.py            # 34 条红队用例
 ```
@@ -186,7 +186,7 @@ suanmingskill/                # 仓库根 = skill 根（安装目录建议叫 su
 │                             #   事业、学业、身心、家庭、古籍、证据分级、档案
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 53 个测试 + 34 条红队用例
+├─ tests/                     # 59 个测试 + 34 条红队用例
 ├─ vendor/lunar_python/       # 未修改的 MIT 依赖（离线可用）
 ├─ docs/                      # 设计笔记：调研、架构、配合协议、评测、测试报告
 ├─ agents/openai.yaml         # Codex 侧展示信息（可选）
@@ -233,6 +233,7 @@ MIT。内置的 lunar-python 也是 MIT，原始许可证在 `vendor/lunar_pytho
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可选协作对象，也是 skill 组织方式的参照
 
 > 本项目不构成医疗、心理、法律、财务建议。命理不是预测事实，重要决定请以现实信息与专业意见为准 (◕‿◕)
+
 
 
 

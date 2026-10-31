@@ -3,7 +3,7 @@
 > 単体で使える**八字排盤と解読**（八字＝生まれた年月日時を干支に置き換えた八つの文字）の Agent Skill —— 盤は正確に、言葉は明快に、境界線は固く ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-59%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
@@ -167,13 +167,13 @@ python scripts/lint_reply.py --file draft.md
 
 | 層 | やり方 | 検証 |
 | --- | --- | --- |
-| 暦算 | `lunar-python`（MIT）+ 自前の真太陽時／夏時間／晩子時ルール | テスト 53 件；**GB/T 33661-2017 干支紀日のアンカー**（1949-10-01 = 甲子日）を含む |
+| 暦算 | `lunar-python`（MIT）+ 自前の真太陽時／夏時間／晩子時ルール | テスト 59 件；**GB/T 33661-2017 干支紀日のアンカー**（1949-10-01 = 甲子日）を含む |
 | 排盤 | 真太陽時（経度差 + 均時差）、1986–1991 年の夏時間、立春／節気の境界警告 | 立春での柱の切り替え、夏時間の初日と最終日、晩子時の二つの扱い |
 | 発話 | 回答セルフチェッカー：20+ 件の越境ルール + 構造チェック | 対話のレッドチーム 34 件、すべて期待どおり |
 | 引用 | 古典は原文を照合した 8 条のみを D 級として収録；実証研究は A/B/C | `references/11`、`references/12` |
 
 ```bash
-python -m unittest discover -s tests -v   # 53 tests
+python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # 構造/引用/ライセンス/禁止内容
 python scripts/eval_dialogue.py            # レッドチーム 34 件
 ```
@@ -187,7 +187,7 @@ suanmingskill/                # リポジトリのルート = skill のルート
 │                             #   仕事、学業、心身、家庭、古典、証拠等級、記録
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # テスト 53 件 + レッドチーム 34 件
+├─ tests/                     # テスト 59 件 + レッドチーム 34 件
 ├─ vendor/lunar_python/       # 未改変の MIT 依存（オフラインで動作）
 ├─ docs/                      # 設計ノート：調査、アーキテクチャ、連携プロトコル、評価、テストレポート
 ├─ agents/openai.yaml         # Codex 側の表示情報（任意）
@@ -234,3 +234,4 @@ MIT。同梱の lunar-python も MIT で、元のライセンスは `vendor/luna
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：任意の連携先であり、skill の組織方法の参考でもあります
 
 > 本プロジェクトは医療、心理、法律、財務の助言を構成するものではありません。命理は事実の予測ではなく、重要な決定は現実の情報と専門家の意見に基づいてください (◕‿◕)
+

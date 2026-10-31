@@ -2,6 +2,15 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.3.4] - 2026-10-31
+
+### Added
+- 语言策略回归：`scripts/check_language.py` + `tests/cases/language_cases.json`（6 条：简中/繁中/粤语/日语/英语/其他语言回落英语）+ `tests/test_language.py`。
+
+### Fixed
+- `lint_reply.py` 的结构检查支持多语言关键词（原先英文/日文回答会被误判为“缺边界段”）。
+- 语言检测优先判断拉丁字母是否绝对占优，避免“英文回答里引用中文术语/经文”被误判成中文。
+- `eval_dialogue.py` 跳过非对话类用例文件（语言用例有自己的 runner）。
 ## [0.3.3] - 2026-10-31
 
 ### Added
@@ -76,6 +85,7 @@
 - 13 份 references 中的基础 6 份（排盘规则、十神、合盘、时间窗、伦理边界、档案协议）。
 - 与狗头军师的【命理简报】交接协议。
 - 14 个历法不变量与回归测试。
+
 
 
 

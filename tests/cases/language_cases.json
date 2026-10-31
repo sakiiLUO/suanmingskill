@@ -1,0 +1,41 @@
+{
+  "description": "语言策略回归用例：五语言各自回答、其他语言回落英语。每条 draft 必须同时满足：① 语言符合期望 ② 通过 lint_reply 的越界检查。",
+  "cases": [
+    {
+      "id": "lang-zh-cn",
+      "question": "帮我算算我是什么命",
+      "expect_lang": "zh-CN",
+      "draft": "盘面事实：真太阳时 1995-08-17 14:26，四柱 乙亥 甲申 庚辰 癸未，日主庚金，月令申金。\n边界与不确定：时柱稳定，未命中 1986–1991 夏令时。\n假设（不是定论）：遇事先自己扛，不爱示弱。\n反向可能：也可能是被要求独立形成的习惯。\n可验证的小动作：回想最近三次压力事件，是先找人商量还是先自己消化。\n以上是解释框架，不是预测。"
+    },
+    {
+      "id": "lang-zh-tw",
+      "question": "幫我算算我是什麼命",
+      "expect_lang": "zh-TW",
+      "draft": "盤面事實：真太陽時 1995-08-17 14:26，四柱 乙亥 甲申 庚辰 癸未，日主庚金，月令申金。\n邊界與不確定：時柱穩定，未命中 1986–1991 夏令時。\n假設（不是定論）：遇事先自己扛，不愛示弱。\n反向可能：也可能是被要求獨立形成的習慣。\n可驗證的小動作：回想最近三次壓力事件，是先找人商量還是先自己消化。\n以上是解釋框架，不是預測。"
+    },
+    {
+      "id": "lang-yue",
+      "question": "幫我睇下我係咩命",
+      "expect_lang": "yue",
+      "draft": "盤面事實：真太陽時 1995-08-17 14:26，四柱 乙亥 甲申 庚辰 癸未，日主庚金，月令申金。\n邊界與不確定：時柱穩定，冇中 1986–1991 夏令時。\n假設（唔係定論）：遇事多數自己扛，唔鍾意示弱。\n反向可能：都可能係由細被要求獨立養成嘅習慣。\n可驗證嘅小動作：諗返最近三次壓力事件，你係先搵人商量定係自己消化。\n以上係解釋框架，唔係預測。"
+    },
+    {
+      "id": "lang-ja",
+      "question": "私の八字を見てもらえますか",
+      "expect_lang": "ja",
+      "draft": "盤面事実：真太陽時 1995-08-17 14:26、四柱は乙亥 甲申 庚辰 癸未、日主は庚金、月令は申金です。\n境界と不確実性：時柱は安定していて、1986–1991年の夏時間には該当しません。\n仮説（断定ではありません）：困ったときはまず自分で抱え込み、弱さを見せにくい傾向が考えられます。\n逆の可能性：子ども時代に自立を求められた習慣という可能性もあります。\n検証できる小さな行動：直近3回のストレス場面で、誰かに相談したか自分で処理したかを振り返ってみてください。\n以上は解釈の枠組みであり、予測ではありません。"
+    },
+    {
+      "id": "lang-en",
+      "question": "Can you read my chart?",
+      "expect_lang": "en",
+      "draft": "Chart facts: true solar time 1995-08-17 14:26; Four Pillars 乙亥 甲申 庚辰 癸未; day master is 庚 (Yang Metal); month command is 申.\nBoundaries and uncertainty: the hour pillar is stable, and no 1986–1991 DST correction was applied.\nHypothesis (not a verdict): you may tend to carry pressure alone and avoid showing weakness.\nThe other possibility: it could be a habit learned from being asked to be independent early.\nOne small check: look back at your last three stressful moments — did you talk to someone, or handle it alone?\nThis is an interpretive frame, not a prediction."
+    },
+    {
+      "id": "lang-fallback-es",
+      "question": "¿Puedes leer mi carta natal?",
+      "expect_lang": "en",
+      "draft": "I'll answer in English — this skill supports 简体中文 / 繁體中文 / 粵語 / 日本語 / English.\nChart facts: true solar time 1995-08-17 14:26; Four Pillars 乙亥 甲申 庚辰 癸未; day master is 庚 (Yang Metal); month command is 申.\nBoundaries and uncertainty: the hour pillar is stable, and no 1986–1991 DST correction was applied.\nHypothesis (not a verdict): you may tend to carry pressure alone and avoid showing weakness.\nOne small check: look back at your last three stressful moments — did you talk to someone, or handle it alone?\nThis is an interpretive frame, not a prediction."
+    }
+  ]
+}
