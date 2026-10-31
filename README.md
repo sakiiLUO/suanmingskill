@@ -3,9 +3,9 @@
 > 一个能独立使用的**八字排盘与解读** Agent Skill —— 把盘算准，把话说明白，把边界写死 ᕕ( ᐛ )ᕗ
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)](#-为什么这层可以信)
+![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
-[![Good Vibes](https://img.shields.io/badge/vibes-友好不吓人-ff69b4.svg)](#-它不做什么)
+![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
 ---
 
@@ -174,3 +174,4 @@ MIT。内置的 lunar-python 也是 MIT，原始许可证在 `vendor/lunar_pytho
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可选协作对象，也是 skill 组织方式的参照
 
 > 本项目不构成医疗、心理、法律、财务建议。命理不是预测事实，重要决定请以现实信息与专业意见为准 (◕‿◕)
+
