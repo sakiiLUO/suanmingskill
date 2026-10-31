@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     "references/10-家庭六亲与代际关系.md",
     "references/11-古籍与文献索引.md",
     "references/12-证据分级与现代研究.md",
+    "references/13-经文与格言.md",
     "scripts/paipan.py",
     "scripts/hepan.py",
     "scripts/archive.py",
@@ -110,6 +111,19 @@ def main(argv: list[str] | None = None) -> int:
         except SyntaxError as exc:
             errors.append(f"{py.name} 编译失败：{exc.msg}")
 
+    # 多语言 README：语言切换条里链接的版本必须存在，且每个版本要链回 README.md
+    readme = root / "README.md"
+    if readme.exists():
+        text = readme.read_text(encoding="utf-8")
+        langs = sorted(set(re.findall(r"\((README\.[A-Za-z-]+\.md)\)", text)))
+        for name in langs:
+            target = root / name
+            if not target.exists():
+                errors.append(f"语言切换条引用了不存在的文件：{name}")
+            elif "(README.md)" not in target.read_text(encoding="utf-8"):
+                errors.append(f"{name} 缺少指回 README.md 的语言切换链接")
+        if not langs:
+            warns.append("README 没有语言切换条（单语仓库可忽略）")
     notice = root / "NOTICE.md"
     if notice.exists():
         ntext = notice.read_text(encoding="utf-8")
@@ -139,6 +153,8 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
 
 

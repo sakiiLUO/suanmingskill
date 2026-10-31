@@ -7,6 +7,12 @@
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 ![Good Vibes](https://img.shields.io/badge/vibes-%E5%8F%8B%E5%A5%BD%E4%B8%8D%E5%90%93%E4%BA%BA-ff69b4.svg)
 
+<!-- LANGS:START -->
+**简体中文** · [繁體中文](README.zh-TW.md) · [粵語](README.yue.md) · [日本語](README.ja.md) · [English](README.en.md)
+<!-- LANGS:END -->
+
+> 本页为简体中文原文；其他语言版本如与本文有出入，以本页为准。
+
 ---
 
 ## 嗨，先看这里 (◕‿◕)
@@ -61,6 +67,18 @@
 | 大运流年、什么时候 | 时间窗假设 + 观察信号 | 具体应期、吉凶断言 |
 | “这科学吗？” | 古籍出处 + A/B/C/D 证据分级 | 把经验说法包装成科学结论 |
 
+## 还能给你一句经文 (｡•̀ᴗ-)✧
+
+有时候你不需要更多分析，只需要一句有分量的话。它能从《道德经》《论语》《心经》《圣经》（和合本）里挑一句，配一句白话解释，再落回你的事：
+
+```text
+《道德经》二十三章：「飘风不终朝，骤雨不终日。」
+意思是：再大的风雨，也不会刮一整天。
+放到你这件事上——难受是有期限的，但期限不会自己到。
+（这句不是预言，你也可以不用。）
+```
+
+规矩也写死：**一次一条、必须标出处、不劝诱改宗、不用地狱/末日/报应恐吓、不拿经文当预测依据**。中文《古兰经》译本还在版权期，所以只转述大意并注明 (｀・ω・´)
 ## 它不做什么 🚫
 
 - 不排生死、寿元、疾病诊断、灾祸、胎儿性别、官司胜负、投资标的、考试分数
@@ -112,13 +130,13 @@ python scripts/lint_reply.py --file draft.md
 | --- | --- | --- |
 | 历算 | `lunar-python`（MIT）+ 自研真太阳时/夏令时/晚子时规则 | 53 个测试；含 **GB/T 33661-2017 干支纪日锚点**（1949-10-01 = 甲子日） |
 | 排盘 | 真太阳时（经度差 + 均时差）、1986–1991 夏令时、立春/节气边界告警 | 立春换柱、夏时制首尾日、晚子时两口径 |
-| 说话 | 回复自检器：20+ 条越界规则 + 结构检查 | 27 条对话红队用例，全部符合期望 |
+| 说话 | 回复自检器：20+ 条越界规则 + 结构检查 | 34 条对话红队用例，全部符合期望 |
 | 引用 | 古籍只收 8 条经核对原文并标 D 级；实证研究标 A/B/C | `references/11`、`references/12` |
 
 ```bash
 python -m unittest discover -s tests -v   # 53 tests
 python scripts/validate_skill.py           # 结构/引用/许可/禁用内容
-python scripts/eval_dialogue.py            # 27 条红队用例
+python scripts/eval_dialogue.py            # 34 条红队用例
 ```
 
 ## 仓库里都有啥 📦
@@ -126,11 +144,11 @@ python scripts/eval_dialogue.py            # 27 条红队用例
 ```text
 suanmingskill/                # 仓库根 = skill 根（安装目录建议叫 suanming）
 ├─ SKILL.md                   # 行为内核：模型唯一必读的那份
-├─ references/                # 13 份按需加载：排盘、十神、合盘、时间窗、伦理、
+├─ references/                # 14 份按需加载（含经文与格言）：排盘、十神、合盘、时间窗、伦理、
 │                             #   事业、学业、身心、家庭、古籍、证据分级、档案
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 53 个测试 + 27 条红队用例
+├─ tests/                     # 53 个测试 + 34 条红队用例
 ├─ vendor/lunar_python/       # 未修改的 MIT 依赖（离线可用）
 ├─ docs/                      # 设计笔记：调研、架构、配合协议、评测、测试报告
 ├─ agents/openai.yaml         # Codex 侧展示信息（可选）
@@ -174,4 +192,5 @@ MIT。内置的 lunar-python 也是 MIT，原始许可证在 `vendor/lunar_pytho
 - [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi)：可选协作对象，也是 skill 组织方式的参照
 
 > 本项目不构成医疗、心理、法律、财务建议。命理不是预测事实，重要决定请以现实信息与专业意见为准 (◕‿◕)
+
 

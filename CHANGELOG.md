@@ -2,6 +2,20 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.3.0] - 2026-10-31
+
+### Added
+- 多语言 README：繁體中文（`README.zh-TW.md`）、粵語（`README.yue.md`）、日本語（`README.ja.md`）、English（`README.en.md`），顶部语言切换条。
+- 经文与格言功能（`references/13-经文与格言.md`）：道德经/论语/心经/圣经和合本的公有领域经句，古兰经只转述大意；一次一条、必须标出处。
+- `SKILL.md` 新增「语言」小节：按用户语言回答（简中/繁中/粤语/日语/英语）。
+- 回复自检器新增宗教类规则：R1 恐吓/劝诱、R2 冒充神意。
+- 新增 7 条经文红队用例（合计 34 条）。
+- `validate_skill.py` 增加多语言 README 完整性检查：切换条链接的文件必须存在，且每份译文要链回 `README.md`。
+- 每份 README 顶部加 `<!-- LANGS:START/END -->` 标记与「以简体中文版为准」说明。
+
+### Changed
+- `SKILL.md` 的领域路由、按需加载、安全边界补充经文条目。
+- README 增加经文示例与语言切换。
 ## [0.2.1] - 2026-10-31
 
 ### Changed
@@ -42,4 +56,6 @@
 - 13 份 references 中的基础 6 份（排盘规则、十神、合盘、时间窗、伦理边界、档案协议）。
 - 与狗头军师的【命理简报】交接协议。
 - 14 个历法不变量与回归测试。
+
+
 
