@@ -85,7 +85,7 @@
 - 不排生死、寿元、疾病诊断、灾祸、胎儿性别、官司胜负、投资标的、考试分数
 - 不做克夫克妻、命硬命贱、童子命，也不替人“改运”、收费消灾
 - 未经同意，不分析别人的健康、寿元、隐私
-- 不做未成年人的合婚、恋爱合盘
+- 不做未成年人的合婚、婚期、结婚推算；恋爱合盘可以聊相处与边界
 - 遇到自伤、家暴、胁迫，**立刻停止命理解读**，先确认安全
 
 它甚至自带一个“发送前自检器”，回答里出现“注定/一定会/克夫/血光/开光/合盘 87 分”这类话会被拦下来改掉 (｀・ω・´)ｼ
@@ -174,7 +174,7 @@ python scripts/lint_reply.py --file draft.md
 ```bash
 python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # 结构/引用/许可/禁用内容
-python scripts/eval_dialogue.py            # 34 条红队用例
+python scripts/eval_dialogue.py            # 40 条红队用例
 ```
 
 ## 仓库里都有啥 📦
@@ -186,7 +186,7 @@ suanmingskill/                # 仓库根 = skill 根（安装目录建议叫 su
 │                             #   事业、学业、身心、家庭、古籍、证据分级、档案
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 59 个测试 + 34 条红队用例
+├─ tests/                     # 59 个测试 + 40 条红队用例
 ├─ vendor/lunar_python/       # 未修改的 MIT 依赖（离线可用）
 ├─ docs/                      # 设计笔记：调研、架构、配合协议、评测、测试报告
 ├─ agents/openai.yaml         # Codex 侧展示信息（可选）

@@ -85,7 +85,7 @@ The rules are hard-coded too: **one passage at a time, source always cited, no a
 - No readings on life and death, lifespan, disease diagnosis, disasters, fetal sex, lawsuit outcomes, investment targets, or exam scores
 - No "husband-killer / wife-killer" (克夫克妻), "hard fate / cheap fate" (命硬命贱), or "child destiny" (童子命); and no "luck-changing" for anyone, no paid disaster clearance
 - Without consent, it won't analyze anyone else's health, lifespan, or private life
-- No marriage matching or romance compatibility charts for minors
+- No marriage matching, wedding timing or marriage predictions for minors (romance compatibility is limited to getting-along and boundaries)
 - When self-harm, domestic violence, or coercion comes up, it **stops the reading immediately** and checks on safety first
 
 It even ships with a "pre-send self-check": if a reply contains phrases like "destined / bound to / husband-killer / bloodshed / consecrated / compatibility score of 87", they get flagged and rewritten (｀・ω・´)ｼ
@@ -175,7 +175,7 @@ Jokes aside, **the chart-casting layer is serious**:
 ```bash
 python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # structure / citations / license / banned content
-python scripts/eval_dialogue.py            # 34 red-team cases
+python scripts/eval_dialogue.py            # 40 red-team cases
 ```
 
 ## What's in the Repo 📦
@@ -187,7 +187,7 @@ suanmingskill/                # repo root = skill root (install directory recomm
 │                             #   compatibility, timing windows, ethics, career, study, body and mind, family, classics, evidence grading, archive
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 59 tests + 34 red-team cases
+├─ tests/                     # 59 tests + 40 red-team cases
 ├─ vendor/lunar_python/       # unmodified MIT dependency (works offline)
 ├─ docs/                      # design notes: research, architecture, collaboration protocol, evaluation, test report
 ├─ agents/openai.yaml         # Codex display metadata (optional)

@@ -85,7 +85,7 @@
 - 唔排生死、壽元、疾病診斷、災禍、胎兒性別、官司勝負、投資標的、考試分數
 - 唔做剋夫剋妻、命硬命賤、童子命，亦都唔會替人「改運」、收費消災
 - 未經同意，唔會分析其他人嘅健康、壽元、私隱
-- 唔做未成年人嘅合婚、戀愛合盤
+- 唔做未成年人嘅合婚、婚期、結婚推算；戀愛合盤可以傾相處同邊界
 - 遇到自傷、家暴、脅迫，**即刻停止命理解讀**，先確認安全
 
 佢仲自帶一個「發送前自檢器」，答案入面出現「注定/一定會/剋夫/血光/開光/合盤 87 分」呢類說話會被攔落嚟改掉 (｀・ω・´)ｼ
@@ -175,7 +175,7 @@ python scripts/lint_reply.py --file draft.md
 ```bash
 python -m unittest discover -s tests -v   # 59 tests
 python scripts/validate_skill.py           # 結構/引用/許可/禁用內容
-python scripts/eval_dialogue.py            # 34 條紅隊用例
+python scripts/eval_dialogue.py            # 40 條紅隊用例
 ```
 
 ## 倉庫入面有啲咩 📦
@@ -187,7 +187,7 @@ suanmingskill/                # 倉庫根 = skill 根（安裝目錄建議叫 su
 │                             #   事業、學業、身心、家庭、古籍、證據分級、檔案
 ├─ scripts/                   # paipan / hepan / solartime / archive /
 │                             #   lint_reply / eval_dialogue / validate_skill
-├─ tests/                     # 59 個測試 + 34 條紅隊用例
+├─ tests/                     # 59 個測試 + 40 條紅隊用例
 ├─ vendor/lunar_python/       # 未修改嘅 MIT 依賴（離線可用）
 ├─ docs/                      # 設計筆記：調研、架構、配合協議、評測、測試報告
 ├─ agents/openai.yaml         # Codex 側展示資訊（可選）
