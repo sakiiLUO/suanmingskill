@@ -79,6 +79,8 @@ For your situation — the pain does have a limit, but the limit won't arrive on
 ```
 
 The rules are hard-coded too: **one passage at a time, source always cited, no attempts to convert anyone, no hell / doomsday / retribution scare tactics, and never scripture as the basis for a prediction**. A Chinese translation of the Quran is still under copyright, so that one is only paraphrased in substance with a note (｀・ω・´)
+
+
 ## What It Doesn't Do 🚫
 
 - No readings on life and death, lifespan, disease diagnosis, disasters, fetal sex, lawsuit outcomes, investment targets, or exam scores
