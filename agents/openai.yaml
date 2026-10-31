@@ -1,0 +1,7 @@
+# Codex 界面元数据（可选）。DSH / Claude Code 只读 SKILL.md 的 frontmatter，本文件用于 Codex 侧展示。
+name: suanming
+display_name: 算命（排盘与合盘）
+short_description: 八字排盘、大运流年、双人合盘；只出盘面和假设，关系策略交给狗头军师。
+default_prompt: >
+  帮我排盘，并结合狗头军师给关系建议。先问出生年月日时、出生城市和性别；
+  排盘后先给盘面事实和不确定性，再给 2–3 条带证据的假设和一个观察窗口。

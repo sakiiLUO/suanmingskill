@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+pip-*
+.pip-*
+.pytest_cache/
+
+# 本地隐私数据：命理档案与排盘输出绝不入库
+.suanming/
+*.profile.json
+*.paipan.json
+
+# 宿主本地配置（不是 skill 内容）
+.dsh/
+.claude/
+.codex/
+
+# 编辑器与系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
