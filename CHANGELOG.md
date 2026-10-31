@@ -2,6 +2,13 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.3.2] - 2026-10-31
+
+### Fixed
+- `agents/openai.yaml` 改为官方 Codex schema：字段包进 `interface:`（原来写在顶层，Codex 侧不识别）。
+
+### Added
+- 5 个语言 README 的「让 AI 帮你安装」后补「装完小贴士」：DSH 热加载 / Claude Code 免重启 / **Codex 需重启**；Windows junction 免管理员但 Codex 跳过 symlink；目录名固定；失败即停不降级为 sudo/全局 pip。
 ## [0.3.1] - 2026-10-31
 
 ### Added
@@ -61,6 +68,7 @@
 - 13 份 references 中的基础 6 份（排盘规则、十神、合盘、时间窗、伦理边界、档案协议）。
 - 与狗头军师的【命理简报】交接协议。
 - 14 个历法不变量与回归测试。
+
 
 
 

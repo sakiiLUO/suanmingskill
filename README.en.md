@@ -137,6 +137,13 @@ Check whether the suanming skill is properly installed on this machine: locate <
 run python -m unittest discover -s tests, and tell me the path and the result; if it isn't installed, say so — don't install it yourself.
 ```
 
+**After install**
+
+- Activation: DSH hot-reloads; Claude Code usually needs no restart; **Codex requires a restart**.
+- On Windows a junction (`mklink /J`) needs no admin rights — but **Codex skips symlinks**, so give Codex a real copy.
+- Keep the folder name `suanming` (matching `name` in `SKILL.md`).
+- If the network fails, stop and retry — don't fall back to `sudo` or a global `pip install`.
+
 ## Using It (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

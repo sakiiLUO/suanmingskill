@@ -136,6 +136,13 @@ cp -r suanming ~/.dsh/skills/        # 目录名保持 suanming，跟 SKILL.md �
 帮我检查本机是否装好了 suanming skill：找到 <skill目录>/suanming/SKILL.md，
 跑 python -m unittest discover -s tests，把路径和结果告诉我；没装就说没装，不要自己装。
 ```
+**装完小贴士**
+
+- 生效方式：DSH 热加载；Claude Code 一般不用重启；**Codex 要重启**才认。
+- Windows 用 junction（`mklink /J`）不需要管理员；但 **Codex 会跳过 symlink**，给 Codex 请复制实体目录。
+- 目录名固定 `suanming`（与 `SKILL.md` 的 `name` 一致），别改。
+- 网络失败就停下重试，别退化成 `sudo` 或全局 `pip install`。
+
 ## 用起来 (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

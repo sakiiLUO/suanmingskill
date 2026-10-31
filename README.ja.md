@@ -137,6 +137,13 @@ cp -r suanming ~/.dsh/skills/        # ディレクトリ名は suanming のま�
 python -m unittest discover -s tests を実行して、パスと結果を教えてください。未インストールならその旨を伝え、自分でインストールしないでください。
 ```
 
+**インストール後のヒント**
+
+- 反映方法：DSH はホットリロード。Claude Code は通常再起動不要。**Codex は再起動が必要**です。
+- Windows は junction（`mklink /J`）なら管理者権限は不要。ただし **Codex は symlink をスキップ**するので、Codex 用は実体をコピーしてください。
+- ディレクトリ名は `suanming` 固定（`SKILL.md` の `name` と一致）。変えないでください。
+- ネットワーク失敗時は停止して再試行。`sudo` やグローバル `pip install` に逃げないでください。
+
 ## 使ってみる (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash

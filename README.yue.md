@@ -137,6 +137,13 @@ cp -r suanming ~/.dsh/skills/        # 目錄名保持 suanming，同 SKILL.md �
 跑 python -m unittest discover -s tests，將路徑同結果話我知；冇裝就話冇裝，唔好自己裝。
 ```
 
+**裝完小貼士**
+
+- 生效方式：DSH 熱載入；Claude Code 通常唔使重開；**Codex 要重開**先認得。
+- Windows 用 junction（`mklink /J`）唔使管理員；不過 **Codex 會跳過 symlink**，畀 Codex 請複製實體資料夾。
+- 資料夾名固定 `suanming`（同 `SKILL.md` 嘅 `name` 一致），唔好改。
+- 網絡失敗就停低重試，唔好變成 `sudo` 或者全域 `pip install`。
+
 ## 用起上嚟 (ﾉ´ヮ`)ﾉ*: ･ﾟ
 
 ```bash
