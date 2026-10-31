@@ -61,16 +61,26 @@ GitHub 规则：最多 20 个、每个 ≤50 字符、只能小写字母/数字/
 
 ### API（需要 PAT，`repo` 或细粒度 Administration: Read and write）
 
+**坑：`PATCH /repos/{owner}/{repo}` 不接受 `topics`**——传了会返回 200，但 topics 不变。
+Topics 必须用专门的 `PUT /repos/{owner}/{repo}/topics`，字段名是 `names` 而不是 `topics`。
+
 ```bash
 export GITHUB_TOKEN=ghp_xxx
+
+# 1) 描述 + 主页
 curl -X PATCH https://api.github.com/repos/sakiiLUO/suanmingskill \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "Accept: application/vnd.github+json" \
   -d '{
     "description": "八字 · 紫微 · 六爻排盘与解读 Agent Skill：真太阳时校正、双人合盘、大运流年、长期维护建议；只给可验证的假设与边界，不断生死/疾病/投资。BaZi · Zi Wei · Liu Yao skill for AI agents (MIT).",
-    "homepage": "https://github.com/sakiiLUO/suanmingskill#readme",
-    "topics": ["bazi","four-pillars","ziwei-doushu","liuyao","iching","chinese-metaphysics","fortune-telling","divination","lunar-calendar","true-solar-time","agent-skills","claude-skills","codex-skills","dsh","ai-agents","llm","python","i18n"]
+    "homepage": "https://github.com/sakiiLUO/suanmingskill#readme"
   }'
+
+# 2) Topics（注意是 PUT + names）
+curl -X PUT https://api.github.com/repos/sakiiLUO/suanmingskill/topics \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
+  -H "Accept: application/vnd.github+json" \
+  -d '{"names":["bazi","four-pillars","ziwei-doushu","liuyao","iching","chinese-metaphysics","fortune-telling","divination","lunar-calendar","true-solar-time","agent-skills","claude-skills","codex-skills","dsh","ai-agents","llm","python","i18n"]}'
 ```
 
 ### GitHub CLI
@@ -99,3 +109,13 @@ curl -sS https://api.github.com/repos/sakiiLUO/suanmingskill | python -c "import
 2. **Pin 仓库**：账号主页 Pin 上这个仓库。
 3. **README 首屏**：已有徽章与「你可能想这么问」，保持前 10 行不出现长表格即可。
 4. **Release**：给 v0.4.0 打一个 tag，Release note 直接复用 CHANGELOG 段落。
+
+## 已设置（2026-10-31）
+
+三项已通过 API 设置并验证（页面 About 区域可见）：
+
+- Description：中英混排版
+- Homepage：`https://github.com/sakiiLUO/suanmingskill#readme`
+- Topics：18 个（`agent-skills` … `ziwei-doushu`，页面已渲染为 topic 标签）
+
+验证方式：`curl -sSL https://github.com/sakiiLUO/suanmingskill | grep -o '/topics/[a-z0-9-]*' | sort -u`（公开 API 的 `topics` 字段有 CDN 缓存延迟，页面 HTML 是准的）。
