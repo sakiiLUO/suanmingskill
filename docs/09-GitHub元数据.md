@@ -105,7 +105,7 @@ curl -sS https://api.github.com/repos/sakiiLUO/suanmingskill | python -c "import
 
 ## 六、加分项（不在字段里，但影响点击率）
 
-1. **Social preview**：Settings → Social preview 上传 1280×640 图（建议：左边「算命 skill」字样，右边一张排盘卡片截图）。
+1. **Social preview**：仓库已生成 `assets/social-preview.png`（1280×640，含 logo 与标题）。GitHub 没有 API 可以设置 Social preview，只能手动：Settings → Social preview → Edit → 上传该文件。
 2. **Pin 仓库**：账号主页 Pin 上这个仓库。
 3. **README 首屏**：已有徽章与「你可能想这么问」，保持前 10 行不出现长表格即可。
 4. **Release**：给 v0.4.0 打一个 tag，Release note 直接复用 CHANGELOG 段落。

@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/logo.png" width="120" alt="suanming logo">
+</p>
 # 算命 skill（suanming）(｡･ω･｡)ﾉ♡
 
 > 単体で使える**八字排盤と解読**（八字＝生まれた年月日時を干支に置き換えた八つの文字）の Agent Skill —— 盤は正確に、言葉は明快に、境界線は固く ᕕ( ᐛ )ᕗ
@@ -195,6 +198,7 @@ python scripts/eval_dialogue.py            # レッドチーム 40 件
 
 ```text
 suanmingskill/                # リポジトリのルート = skill のルート（インストール先は suanming を推奨）
+├─ assets/                   # logo / social preview
 ├─ SKILL.md                   # 振る舞いの中核：モデルが必ず読む唯一のファイル
 ├─ references/                # 16 本を必要時に読み込み（経文・長期メンテ・紫微と六爻を含む）：排盤、十神、合盤、時間の窓、倫理、
 │                             #   仕事、学業、心身、家庭、古典、証拠等級、記録

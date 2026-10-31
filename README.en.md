@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/logo.png" width="120" alt="suanming logo">
+</p>
 # Fortune-Telling Skill (suanming) (｡･ω･｡)ﾉ♡
 
 > A standalone **BaZi charting and interpretation** Agent Skill — get the chart right, say it plainly, and make the boundaries non-negotiable ᕕ( ᐛ )ᕗ
@@ -195,6 +198,7 @@ python scripts/eval_dialogue.py            # 40 red-team cases
 
 ```text
 suanmingskill/                # repo root = skill root (install directory recommended: suanming)
+├─ assets/                   # logo / social preview
 ├─ SKILL.md                   # behavioral core: the one file the model must read
 ├─ references/                # 16 reference files (incl. scripture, long-term maintenance, Zi Wei & Liu Yao): charting, Ten Gods,
 │                             #   compatibility, timing windows, ethics, career, study, body and mind, family, classics, evidence grading, archive

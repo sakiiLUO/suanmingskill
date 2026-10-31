@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/logo.png" width="120" alt="suanming logo">
+</p>
 # 算命 skill（suanming）(｡･ω･｡)ﾉ♡
 
 > 一個能獨立使用的**八字排盤與解讀** Agent Skill —— 把盤算準，把話說明白，把邊界寫死 ᕕ( ᐛ )ᕗ
@@ -195,6 +198,7 @@ python scripts/eval_dialogue.py            # 40 條紅隊用例
 
 ```text
 suanmingskill/                # 倉庫根 = skill 根（安裝目錄建議叫 suanming）
+├─ assets/                   # logo / social preview
 ├─ SKILL.md                   # 行為內核：模型唯一必讀的那份
 ├─ references/                # 16 份按需載入（含經文、長期維護、紫微與六爻）：排盤、十神、合盤、時間窗、倫理、
 │                             #   事業、學業、身心、家庭、古籍、證據分級、檔案
