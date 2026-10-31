@@ -2,6 +2,16 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.2.1] - 2026-10-31
+
+### Changed
+- README 重写为面向用户的版本：颜文字、对话示例、「你可能想这么问」与 FAQ。
+- SKILL.md 新增「语气」小节：允许少量口语与颜文字，但事实/边界段落保持严肃，不用江湖称呼。
+- CONTRIBUTING 开头改成欢迎语气。
+
+### Fixed
+- LICENSE 改为纯 MIT 正文（第三方说明保留在 NOTICE.md），修复 GitHub 许可证识别为 Other 的问题。
+- README 徽章移除可能失效的锚点链接，徽章文案改为 URL 编码。
 ## [0.2.0] - 2026-10-31
 
 ### Added
@@ -32,3 +42,4 @@
 - 13 份 references 中的基础 6 份（排盘规则、十神、合盘、时间窗、伦理边界、档案协议）。
 - 与狗头军师的【命理简报】交接协议。
 - 14 个历法不变量与回归测试。
+
